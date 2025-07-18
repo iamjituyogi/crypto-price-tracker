@@ -1,97 +1,112 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Crypto Price Tracker
 
-# Getting Started
+A React Native mobile app that connects to Binance WebSocket API to display real-time cryptocurrency price updates.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## Features
 
-## Step 1: Start Metro
+- **Real-time Price Updates**: Connects to Binance WebSocket API for live cryptocurrency prices
+- **Multiple Trading Pairs**: Tracks BTC/USDT, ETH/USDT, BNB/USDT, ADA/USDT, and SOL/USDT
+- **Visual Price Indicators**: Green text for price increases, red text for price decreases
+- **Interactive Charts**: Beautiful line charts showing price history over time
+- **Dual View Modes**: Switch between list view and chart view
+- **Connection Management**: Manual connect/disconnect functionality with status indicators
+- **Auto-reconnection**: Automatically attempts to reconnect if connection is lost
+- **Modern UI**: Dark theme with card-based layout for better user experience
+- **Timestamp Display**: Shows when each price update was received
+- **Price History**: Stores and displays historical price data for trend analysis
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## Prerequisites
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+- Node.js (v14 or higher)
+- React Native CLI
+- Android Studio (for Android development)
+- Xcode (for iOS development, macOS only)
 
-```sh
-# Using npm
-npm start
+## Installation
 
-# OR using Yarn
-yarn start
+1. Clone or navigate to the project directory:
+```bash
+cd CryptoPriceTracker
 ```
 
-## Step 2: Build and run your app
+2. Install dependencies:
+```bash
+npm install
+```
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+3. For iOS (macOS only), install CocoaPods dependencies:
+```bash
+cd ios && pod install && cd ..
+```
+
+## Running the App
 
 ### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+```bash
+npx react-native run-android
 ```
 
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+### iOS (macOS only)
+```bash
+npx react-native run-ios
 ```
 
-Then, and every time you update your native dependencies, run:
+## How to Use
 
-```sh
-bundle exec pod install
+1. **Launch the App**: The app will automatically attempt to connect to the Binance WebSocket API
+2. **View Prices**: Real-time cryptocurrency prices will be displayed in cards
+3. **Switch Views**: Use the toggle button to switch between List view and Chart view
+4. **Monitor Status**: Check the connection status indicator at the top
+5. **Manual Control**: Use the Connect/Disconnect button to manually control the connection
+6. **Price Changes**: Watch for green (increase) and red (decrease) price indicators
+7. **Chart Analysis**: In chart view, see price trends over time with interactive line charts
+
+## Technical Details
+
+- **WebSocket Endpoint**: `wss://stream.binance.com:9443/ws/!ticker@arr`
+- **Supported Pairs**: BTC/USDT, ETH/USDT, BNB/USDT, ADA/USDT, SOL/USDT
+- **Update Frequency**: Real-time as provided by Binance API
+- **Reconnection**: Automatic retry every 5 seconds on connection loss
+
+## Project Structure
+
+```
+CryptoPriceTracker/
+├── App.tsx              # Main application component
+├── package.json         # Dependencies and scripts
+├── ios/                 # iOS-specific files
+├── android/             # Android-specific files
+└── README.md           # This file
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+## Troubleshooting
 
-```sh
-# Using npm
-npm run ios
+### Common Issues
 
-# OR using Yarn
-yarn ios
-```
+1. **WebSocket Connection Failed**
+   - Check your internet connection
+   - Ensure you're not behind a restrictive firewall
+   - Try restarting the app
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+2. **iOS Build Issues**
+   - Run `cd ios && pod install` to install CocoaPods dependencies
+   - Clean build: `cd ios && xcodebuild clean`
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+3. **Android Build Issues**
+   - Clean build: `cd android && ./gradlew clean`
+   - Ensure Android SDK is properly configured
 
-## Step 3: Modify your app
+## Dependencies
 
-Now that you have successfully run the app, let's make changes!
+- `react-native`: Core React Native framework
+- `react-native-chart-kit`: Interactive charts and graphs
+- `react-native-svg`: SVG support for charts
+- `react-native-websocket`: WebSocket functionality (if needed for additional features)
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+## License
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+This project is for educational purposes. Please refer to Binance API terms of service for production use.
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+---
 
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+**Note**: This app uses the public Binance WebSocket API. For production applications, please review Binance's API terms of service and rate limits.
