@@ -1,0 +1,15 @@
+current directory: /Users/jituyogi/Documents/react-native/interview/CryptoPriceTracker/vendor/bundle/ruby/3.1.0/gems/nkf-0.2.0/ext/nkf
+/Users/jituyogi/.rbenv/versions/3.1.0/bin/ruby -I /Users/jituyogi/.rbenv/versions/3.1.0/lib/ruby/3.1.0 -r ./siteconf20250718-5476-xdudbt.rb extconf.rb
+creating Makefile
+
+current directory: /Users/jituyogi/Documents/react-native/interview/CryptoPriceTracker/vendor/bundle/ruby/3.1.0/gems/nkf-0.2.0/ext/nkf
+make DESTDIR\= clean
+
+current directory: /Users/jituyogi/Documents/react-native/interview/CryptoPriceTracker/vendor/bundle/ruby/3.1.0/gems/nkf-0.2.0/ext/nkf
+make DESTDIR\=
+compiling nkf.c
+linking shared-object nkf.bundle
+
+current directory: /Users/jituyogi/Documents/react-native/interview/CryptoPriceTracker/vendor/bundle/ruby/3.1.0/gems/nkf-0.2.0/ext/nkf
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 nkf.bundle ./.gem.20250718-5476-ti88b3
